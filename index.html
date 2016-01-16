@@ -27,10 +27,12 @@
           var acc_g = e.accelerationIncludingGravity;
           var gx = Number(acc_g.x).toFixed(5);
           var gy = Number(acc_g.y).toFixed(5);
-          if(gx < -7 || gx > 7 || gy < -7 || gy > 7){
+          if (gx < 0 ) gx *= -1;
+          if (gy < 0 ) gy *= -1;
+          if( gx > 9 || gy > 9 ){
             $("p").slideDown("fast");
           }
-          else {
+          else if( gx < 6 && gy < 6 ){
             $("p").slideUp("fast");
           }
         });
