@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>What a SHOT !!</title>
+    <style>
+      html, body{
+        background-color: #000;
+      }
+      p{
+        font-size: 10vw;
+        font-family: 'ヒラギノ角ゴ ProN';
+        font-weight: bold;
+        text-align: center;
+        color: #008080;
+        background-color: #FFFF00;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <p>WHAT A SHOT !!</p>
+    <script>
+    (function() {
+        window.addEventListener("devicemotion", function(e){
+          var acc_g = e.accelerationIncludingGravity;
+          var gx = Number(acc_g.x).toFixed(5);
+          var gy = Number(acc_g.y).toFixed(5);
+          if(gx < -7 || gx > 7 || gy < -7 || gy > 7){
+            $("p").slideDown("fast");
+          }
+          else {
+            $("p").slideUp("fast");
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
